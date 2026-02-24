@@ -1,6 +1,8 @@
 import React from 'react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import ContactForm from '../components/ContactForm';
+import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 
 const PHONE_PABLO = '5492364303960';
 const WA_MSG = 'Hola Pablo, necesito consultar por un servicio de mantenimiento en Junín...';
@@ -294,26 +296,7 @@ export default function Home() {
             </section>
 
             {/* ═══════ BLOQUE 12: FOOTER ═══════ */}
-            <footer className="border-t border-white/10 py-10 mt-auto">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-slate-500">
-                        <div className="text-center md:text-left">
-                            <p className="font-bold text-slate-300 text-base">Junín Soluciones Edilicias</p>
-                            <p className="text-xs">by Pablo & Daniel — Junín, Buenos Aires</p>
-                        </div>
-                        <div className="flex flex-wrap justify-center gap-6">
-                            <a href="/electricidad" className="hover:text-white transition-colors">Electricidad</a>
-                            <a href="/plomeria" className="hover:text-white transition-colors">Plomería</a>
-                            <a href="/empresas" className="hover:text-white transition-colors">Empresas</a>
-                            <a href="/planes" className="hover:text-white transition-colors">Planes</a>
-                        </div>
-                        <div className="text-center md:text-right">
-                            <p>Contacto: <a href={`tel:+${PHONE_PABLO}`} className="text-primary hover:underline">236 430-3960</a> (Pablo)</p>
-                            <p className="text-xs mt-1">© 2026 Todos los derechos reservados.</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
 
             {/* ═══════ STICKY MOBILE CTA BAR ═══════ */}
             <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-white/10 p-3 flex gap-3">

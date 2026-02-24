@@ -1,7 +1,9 @@
 import React from 'react';
 import WhatsAppButton from '../../components/WhatsAppButton';
 import ContactForm from '../../components/ContactForm';
+import Footer from '../../components/Footer';
 import type { Metadata } from 'next';
+import Footer from '../../components/Footer';
 
 const PHONE_PABLO = '5492364303960';
 const WA_MSG_DEFAULT = 'Hola Pablo, quiero consultar por un plan de mantenimiento...';
@@ -300,11 +302,7 @@ export default function Planes() {
             </div></section>
 
             {/* FOOTER */}
-            <footer className="border-t border-white/10 py-10 mt-auto"><div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-                <p className="font-bold text-slate-300">Junín Soluciones Edilicias — by Pablo & Daniel</p>
-                <div className="flex flex-wrap gap-6"><a href="/" className="hover:text-white transition-colors">Inicio</a><a href="/electricidad" className="hover:text-white transition-colors">Electricidad</a><a href="/plomeria" className="hover:text-white transition-colors">Plomería</a><a href="/pintura" className="hover:text-white transition-colors">Pintura</a><a href="/construccion-seco" className="hover:text-white transition-colors">Construcción</a><a href="/empresas" className="hover:text-white transition-colors">Empresas</a></div>
-                <p>Contacto: <a href={`tel:+${PHONE_PABLO}`} className="text-primary hover:underline">236 430-3960</a></p>
-            </div></footer>
+            <Footer />
 
             <p className="text-center text-xs text-slate-600 py-4">*Sujeto a uso razonable (máx. 8 intervenciones/mes). Precios en ARS, vigentes a Feb 2026. Sin contrato anual.</p>
 

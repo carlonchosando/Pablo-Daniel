@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const PHONE_PABLO = '5492364303960';
 
@@ -29,7 +30,7 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
-                    <a href="/" className="flex items-center gap-3 group">
+                    <Link href="/" className="flex items-center gap-3 group">
                         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-extrabold text-sm shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform">
                             J<span className="text-[10px]">SE</span>
                         </div>
@@ -37,18 +38,18 @@ export default function Navbar() {
                             <span className="text-white font-bold text-sm leading-none block">Junín Soluciones</span>
                             <span className="text-slate-400 text-xs leading-none">by Pablo & Daniel</span>
                         </div>
-                    </a>
+                    </Link>
 
                     {/* Desktop Links */}
                     <div className="hidden md:flex items-center gap-1">
                         {navLinks.map((link) => (
-                            <a
+                            <Link
                                 key={link.href}
                                 href={link.href}
                                 className="text-sm font-medium text-slate-300 hover:text-white px-4 py-2 rounded-lg hover:bg-white/5 transition-all"
                             >
                                 {link.label}
-                            </a>
+                            </Link>
                         ))}
                     </div>
 
@@ -88,14 +89,14 @@ export default function Navbar() {
             <div className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                 <div className="bg-slate-950/95 backdrop-blur-xl border-t border-white/10 px-4 py-4 space-y-1">
                     {navLinks.map((link) => (
-                        <a
+                        <Link
                             key={link.href}
                             href={link.href}
                             onClick={() => setIsOpen(false)}
                             className="block text-slate-300 hover:text-white font-medium py-3 px-4 rounded-lg hover:bg-white/5 transition-all"
                         >
                             {link.label}
-                        </a>
+                        </Link>
                     ))}
                     <div className="pt-3 border-t border-white/10 mt-3 flex gap-3">
                         <a href={`tel:+${PHONE_PABLO}`} className="flex-1 text-center glass text-white font-bold py-3 rounded-lg">

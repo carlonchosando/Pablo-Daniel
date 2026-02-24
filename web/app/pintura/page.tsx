@@ -1,7 +1,9 @@
 import React from 'react';
 import WhatsAppButton from '../../components/WhatsAppButton';
 import ContactForm from '../../components/ContactForm';
+import Footer from '../../components/Footer';
 import type { Metadata } from 'next';
+import Footer from '../../components/Footer';
 
 const PHONE_PABLO = '5492364303960';
 const WA_MSG = 'Hola Pablo, necesito un presupuesto de pintura en Junín...';
@@ -197,11 +199,7 @@ export default function Pintura() {
             </div></section>
 
             {/* FOOTER */}
-            <footer className="border-t border-white/10 py-10 mt-auto"><div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-                <p className="font-bold text-slate-300">Junín Soluciones Edilicias — by Pablo & Daniel</p>
-                <div className="flex gap-6"><a href="/" className="hover:text-white transition-colors">Inicio</a><a href="/electricidad" className="hover:text-white transition-colors">Electricidad</a><a href="/plomeria" className="hover:text-white transition-colors">Plomería</a><a href="/empresas" className="hover:text-white transition-colors">Empresas</a><a href="/planes" className="hover:text-white transition-colors">Planes</a></div>
-                <p>Contacto: <a href={`tel:+${PHONE_PABLO}`} className="text-primary hover:underline">236 430-3960</a></p>
-            </div></footer>
+            <Footer />
 
             {/* MOBILE BAR */}
             <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-slate-950/95 backdrop-blur-xl border-t border-white/10 p-3 flex gap-3">
