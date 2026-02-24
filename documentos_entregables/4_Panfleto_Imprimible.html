@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panfleto Pablo & Daniel - Listo para Imprimir</title>
+    <!-- Incluimos Tailwind vía CDN para prototipado rápido -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Configuraciones para tamaño A5 */
+        @page {
+            size: A5 portrait;
+            margin: 0;
+        }
+        body {
+            /* Dimensiones de A5: 148 mm de ancho x 210 mm de alto */
+            width: 148mm;
+            height: 209mm;
+            margin: 0 auto;
+            background: #ffffff;
+            /* Forzar a las impresoras a respetar los colores de fondo */
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        @media print {
+            body {
+                width: 100%;
+                height: 100%;
+                box-shadow: none;
+            }
+        }
+        .bg-pattern {
+            background-color: #0f172a;
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="flex flex-col relative overflow-hidden font-sans">
+    <!-- Header Decorativo -->
+    <div class="h-2 w-full bg-blue-500 absolute top-0 left-0"></div>
+
+    <!-- Sección Superior / Encabezado -->
+    <header class="bg-pattern text-white px-6 pt-12 pb-10 rounded-br-[40px] shadow-lg relative">
+        <div class="absolute top-4 left-6 text-sm font-bold text-blue-400 tracking-wider">
+            JUNÍN SOLUCIONES EDILICIAS
+        </div>
+        <h1 class="text-3xl font-extrabold leading-tight mt-2 mb-2">
+            ¿Problemas en tu <span class="text-orange-400">casa o local?</span>
+        </h1>
+        <p class="text-xl font-medium text-gray-200">
+            Llegamos Hoy. Lo arreglamos bien.
+        </p>
+    </header>
+
+    <!-- Sección Intermedia / Servicios -->
+    <main class="flex-grow px-8 pt-8 pb-4">
+        <h2 class="text-lg font-bold text-gray-800 mb-6 uppercase tracking-wide border-b-2 border-orange-400 inline-block">Nuestros Servicios</h2>
+        
+        <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+                <div class="bg-blue-100 text-blue-600 p-3 rounded-full shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                    <strong class="block text-gray-900 text-lg">Electricidad</strong>
+                    <span class="text-gray-600">Urgencias, cortocircuitos y tableros.</span>
+                </div>
+            </li>
+            
+            <li class="flex items-start gap-4">
+                <div class="bg-blue-100 text-blue-600 p-3 rounded-full shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                </div>
+                <div>
+                    <strong class="block text-gray-900 text-lg">Plomería</strong>
+                    <span class="text-gray-600">Pérdidas, destapes y cañerías rotas.</span>
+                </div>
+            </li>
+
+            <li class="flex items-start gap-4">
+                <div class="bg-blue-100 text-blue-600 p-3 rounded-full shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                </div>
+                <div>
+                    <strong class="block text-gray-900 text-lg">Techos y Pintura</strong>
+                    <span class="text-gray-600">Impermeabilización y puestas a punto.</span>
+                </div>
+            </li>
+        </ul>
+    </main>
+
+    <!-- Sección de Oferta / Call to Action -->
+    <div class="px-6 py-4">
+        <div class="bg-orange-50 border-2 border-orange-400 rounded-xl p-4 text-center">
+            <h3 class="text-orange-600 font-extrabold text-xl tracking-tight uppercase">¡Presupuesto Sin Cargo!</h3>
+            <p class="text-gray-700 text-sm font-medium mt-1">En el casco urbano de Junín.</p>
+            <div class="h-px bg-orange-200 w-3/4 mx-auto my-2"></div>
+            <p class="text-gray-800 text-sm font-bold">Comercios: Plan de Mantenimiento en 3 Pagos.</p>
+        </div>
+    </div>
+
+    <!-- Footer / Contacto -->
+    <footer class="mt-auto bg-gray-100 px-8 py-5 flex items-center justify-between border-t-4 border-blue-500">
+        <div class="flex-1">
+            <p class="text-sm font-bold text-gray-800 mb-1">Expertos a tu servicio:</p>
+            <p class="text-base text-gray-900 font-bold flex items-center gap-1">
+                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                Pablo: 236 430-3960
+            </p>
+            <p class="text-base text-gray-900 font-bold flex items-center gap-1 mt-1">
+                <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                Daniel: 236 468-0591
+            </p>
+            <p class="text-xs text-gray-500 mt-2">✅ Facturamos y trabajamos limpio.</p>
+        </div>
+        
+        <div class="text-center w-24">
+            <!-- QR generado dinámicamente apuntando a WhatsApp. Data urlencodeada -->
+            <img class="w-full h-auto rounded-lg shadow-sm border border-gray-300 pointer-events-none" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F5492364303960%3Ftext%3DHola%2520Pablo%2520y%2520Daniel%2C%2520tengo%2520un%2520panfleto%2520suyo%2520y%2520necesito%2520una%2520visita%2520de%2520mantenimiento." alt="Escanea para enviarnos un WhatsApp" />
+            <p class="text-[10px] text-gray-500 font-bold mt-1 uppercase leading-tight">Escaneá para hablarnos hoy</p>
+        </div>
+    </footer>
+</body>
+</html>

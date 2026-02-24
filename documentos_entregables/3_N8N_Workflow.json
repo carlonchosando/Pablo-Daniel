@@ -1,0 +1,203 @@
+{
+  "name": "Pablo_Daniel_Receptor_Leads",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "nuevo-lead-mantenimiento",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "e402cbdb-a006-4927-bdae-0e6e889d1abc",
+      "name": "Webhook Landing Pages",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "{\"status\":\"ok\",\"message\":\"Lead recibido con éxito. Pablo y Daniel han sido notificados.\"}",
+        "options": {}
+      },
+      "id": "b3f0df64-4e78-4ab2-8d7b-1cb83b0631c3",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        420,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "keepOnlySet": false,
+        "values": {
+          "string": [
+            {
+              "name": "mensaje_whatsapp",
+              "value": "=*⚠️ NUEVO CLIENTE (WEB)*=\n\n*Nombre:* {{$json.body.nombre}}\n*Teléfono:* {{$json.body.telefono}}\n*Servicio:* {{$json.body.servicio}}\n*Tipo de Cliente:* {{$json.body.tipo_cliente}}\n*Mensaje:* {{$json.body.mensaje}}\n---------------------------\n_Por favor, el primero que se desocupe contacte al cliente._"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c1f8a8db-b006-4927-cdae-0e6e889d2def",
+      "name": "Formatear Mensaje",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        640,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.whatsapp.ejemplo.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer TU_TOKEN_AQUI"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "messaging_product",
+              "value": "whatsapp"
+            },
+            {
+              "name": "to",
+              "value": "5492364303960"
+            },
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "text.body",
+              "value": "={{ $json.mensaje_whatsapp }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d2f9b9ec-c117-5038-debf-1f7f990e3ef0",
+      "name": "WhatsApp Web API (Pablo)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        860,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.whatsapp.ejemplo.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer TU_TOKEN_AQUI"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "messaging_product",
+              "value": "whatsapp"
+            },
+            {
+              "name": "to",
+              "value": "5492364680591"
+            },
+            {
+              "name": "type",
+              "value": "text"
+            },
+            {
+              "name": "text.body",
+              "value": "={{ $node['Formatear Mensaje'].json.mensaje_whatsapp }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e30acaf1-d228-6149-ef01-2g8g001f4g01",
+      "name": "WhatsApp Web API (Daniel)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1080,
+        200
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook Landing Pages": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        [
+          {
+            "node": "Formatear Mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Formatear Mensaje": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp Web API (Pablo)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WhatsApp Web API (Pablo)": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp Web API (Daniel)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {}
+}
