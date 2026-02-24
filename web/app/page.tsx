@@ -2,7 +2,6 @@ import React from 'react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
-import Footer from '../components/Footer';
 
 const PHONE_PABLO = '5492364303960';
 const WA_MSG = 'Hola Pablo, necesito consultar por un servicio de mantenimiento en Junín...';

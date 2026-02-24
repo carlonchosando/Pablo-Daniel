@@ -3,7 +3,6 @@ import WhatsAppButton from '../../components/WhatsAppButton';
 import ContactForm from '../../components/ContactForm';
 import Footer from '../../components/Footer';
 import type { Metadata } from 'next';
-import Footer from '../../components/Footer';
 
 const PHONE_PABLO = '5492364303960';
 const WA_MSG_B2B = 'Hola Pablo, represento un comercio/inmobiliaria en Junín y necesito consultarles sobre mantenimiento...';

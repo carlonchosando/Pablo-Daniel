@@ -3,7 +3,6 @@ import WhatsAppButton from '../../components/WhatsAppButton';
 import ContactForm from '../../components/ContactForm';
 import Footer from '../../components/Footer';
 import type { Metadata } from 'next';
-import Footer from '../../components/Footer';
 
 const PHONE_PABLO = '5492364303960';
 const WA_MSG = 'Hola Pablo, necesito un plomero urgente en Junín...';
